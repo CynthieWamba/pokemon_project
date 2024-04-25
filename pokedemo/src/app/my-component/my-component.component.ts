@@ -15,7 +15,8 @@ export class MyComponentComponent implements OnInit {
   searchPokedName: string ='';
   pokes : Pokemon[] = [];
   pokeDetail!: PokeDetail;
-
+  myDate!: Date;
+  checked: boolean = true;
   constructor(private pokeService: PokeAPIServiceService, private pokeShareInfoService: PokeShareInfoService) {
 
   }
@@ -29,10 +30,11 @@ export class MyComponentComponent implements OnInit {
   }
 
   go(){
-    this.pokeShareInfoService.setValue(this.selectedPokedId);
     if (this.selectedPokedId != ''){
-      this.pokeService.getPokemonInfo(this.selectedPokedId).subscribe(data =>this.pokeDetail = data);
+      this.pokeService.getPokemonInfo(this.selectedPokedId).subscribe(data => this.pokeDetail = data);
+        this.pokeShareInfoService.setValue(this.selectedPokedId);
+     };
     };
-  }
+
 
 }

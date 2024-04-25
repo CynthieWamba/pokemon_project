@@ -8,7 +8,7 @@ export class PokeShareInfoService {
 
   public stringVar = new Subject<string>();
 
-  //creation d<un observale qui va observer le sujet
+  //creation d'un observale qui va observer le sujet
   getObservable(): Subject<string>{
     return this.stringVar;
   }
@@ -20,7 +20,7 @@ export class PokeShareInfoService {
   }
 
   //mettre a jour le sujet en creant une methode pour l'autoriser la MAJ
-  setValue(newStringVar: string){
+  public setValue(newStringVar: string){
     this.stringVar.next(newStringVar);
   }
 }
